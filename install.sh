@@ -39,4 +39,8 @@ if [ $INSTALL_GEMINI -eq 1 ]; then
 fi
 
 rm -f "$TMP"
-echo "Done!"
+echo ""
+echo "────────────────────────────────────────"
+echo "Start your agent and ask:"
+echo "  What can I do with the myapi skills?"
+echo "────────────────────────────────────────"
