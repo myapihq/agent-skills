@@ -26,22 +26,9 @@ List endpoints accept `?limit=` and `?offset=` and return `total`, `limit`, `off
 
 ## Authentication & Key Management
 
-### Account Registration
-**Register:**
-```
-POST /hq/account/register
-{ "email": "...", "password": "..." }
-```
-Errors: `400` invalid_json · `422` invalid email format or password too short · `409` email already registered.
+You need to go to myapihq.com and register an account. Generate an api key and export it to pass it to the agent (as env).
 
-**Verify Email:**
-```
-GET /hq/account/verify-email?token=<token>
-→ 302 redirect
-```
-Errors: `410` token already used.
-
-**Login:**
+### Account Login
 ```
 POST /hq/account/login
 { "email": "...", "password": "..." }
@@ -122,17 +109,10 @@ POST /hq/org-imports/{job_id}/confirm
 - `PATCH /hq/orgs/{id}` — partial update, same fields as create. Errors: `400` invalid_json · `404` org_not_found · `422` invalid_field:*.
 - `DELETE /hq/orgs/{id}` — delete org and cascade. Errors: `404` org_not_found.
 
-### Org Assets
-- **Ingest from URL:** `POST /hq/orgs/{org_id}/assets/ingest` — `{ "url": "https://..." }` · Errors: `422` url_required, https_required · `429` rate_limit_exceeded · `422` unsupported format (only JPEG/PNG).
-- **Upload file:** `POST /hq/orgs/{org_id}/assets/upload` — multipart `file` field.
-- **List:** `GET /hq/orgs/{org_id}/assets`
-- **Delete:** `DELETE /hq/orgs/{org_id}/assets/{asset_id}` — Errors: `404` asset_not_found.
-
 ## Billing
+- **Setup Payment Method:** You need to do this from the myapihq dashboard directly.
 - **Check Balance:** `GET /hq/billing/balance` → `{ "data": { "balance_cents": 1000, "balance_display": "$10.00", "has_payment_method": true } }`.
 - **Billing History:** `GET /hq/billing/history`
-- **Setup Payment Method:** `POST /hq/billing/setup-payment` → `{ "data": { "url": "https://checkout.stripe.com/..." } }` — Stripe Checkout URL to save a card.
-- **Confirm Setup:** `POST /hq/billing/setup-payment/confirm`
 - **Top Up:** `POST /hq/billing/topup` — `{ "amount_cents": 1000 }` → `{ "data": { "new_balance_cents": 2000, "new_balance_display": "$20.00" } }`.
 
 **On 402 from any service:** check balance and top up here before retrying.
