@@ -6,7 +6,7 @@ Agent skills for the [MyAPI](https://myapihq.com) ecosystem. Drop any skill into
 
 MyAPI is a suite of API-first services designed for agents and developers. Every service shares the same authentication model, response envelope, and conventions, so once you learn one you know them all.
 
-Start with `my-api-hq` to get an API key, then add whichever services your agent needs.
+Start with `my-api-hq` — it handles registration and gives your agent an API key. All other services require that key.
 
 ## Skills
 
@@ -25,31 +25,26 @@ Start with `my-api-hq` to get an API key, then add whichever services your agent
 
 ## Usage
 
-Each folder contains a `SKILL.md` you can load directly into any agent (Claude, GPT, Gemini, open-source). Skills follow the [skills.sh](https://skills.sh) format.
+Each skill is a folder containing a `SKILL.md`. Copy the folder into your agent's skills directory:
 
-### Claude
+| Agent | Skills directory |
+|---|---|
+| Claude | `~/.claude/skills/` |
+| Gemini | `~/.gemini/skills/` |
 
-Install via the Claude plugin registry or load the `SKILL.md` directly into your project.
+Then restart your agent and it will pick up the skill automatically.
 
-### Any agent
+### Claude plugin
 
-Point your agent at the raw `SKILL.md` URL:
-
-```
-https://raw.githubusercontent.com/myapihq/agent-skills/main/<service>/SKILL.md
-```
+Install directly from the Claude plugin registry — no manual setup needed.
 
 ## Authentication
 
-All services use a single API key. Get yours at [myapihq.com](https://myapihq.com) or by running the `my-api-hq` skill.
+Register at [myapihq.com](https://myapihq.com) to get an API key, then set it in your environment:
 
 ```
 Authorization: Bearer <your_api_key>
 ```
 
-## Links
+The `my-api-hq` skill also supports autonomous agent registration — an agent can create its own account without human input.
 
-- Docs: [docs.myapihq.com](https://docs.myapihq.com)
-- npm: [@myapihq/mcp](https://www.npmjs.com/package/@myapihq/mcp) — MCP server for all services
-- npm: [@myapihq/sdk](https://www.npmjs.com/package/@myapihq/sdk) — TypeScript SDK
-- npm: [@myapihq/cli](https://www.npmjs.com/package/@myapihq/cli) — CLI tool
