@@ -13,15 +13,15 @@ Start with `my-api-hq` — it handles registration and gives your agent an API k
 | Skill | What it does |
 |---|---|
 | [my-api-hq](./my-api-hq/) | Auth, organizations, and billing. **Start here** — all other skills need an API key from this one. |
-| [my-domain-api](./my-domain-api/) | Register domains, check availability, manage DNS and edge settings. |
-| [my-email-api](./my-email-api/) | Mailboxes, sending, reading, email verification, and AI-powered templates with open/click tracking. |
-| [my-funnel-api](./my-funnel-api/) | Host multi-page sites and funnels from raw HTML or AI-generated content. |
-| [my-image-api](./my-image-api/) | AI image generation with automatic cloud storage. Pass a prompt, get a hosted URL. |
-| [my-pixel-api](./my-pixel-api/) | Query web visits, email events, and identity resolution from the tracking pixel. |
-| [my-storage-api](./my-storage-api/) | Upload and host static assets (images, files) with permanent public URLs. |
-| [my-url-to](./my-url-to/) | URL shortening and link tracking via myurlto.com. |
-| [my-webhook-api](./my-webhook-api/) | Create inbound webhook endpoints and fan out payloads to workflows. |
-| [my-workflow-api](./my-workflow-api/) | Webhook-triggered automations with conditions, actions, and retries. |
+| my-domain-api | Register domains, check availability, manage DNS and edge settings. *(coming soon)* |
+| my-email-api | Mailboxes, sending, reading, email verification, and AI-powered templates with open/click tracking. *(coming soon)* |
+| my-funnel-api | Host multi-page sites and funnels from raw HTML or AI-generated content. *(coming soon)* |
+| my-image-api | AI image generation with automatic cloud storage. Pass a prompt, get a hosted URL. *(coming soon)* |
+| my-pixel-api | Query web visits, email events, and identity resolution from the tracking pixel. *(coming soon)* |
+| my-storage-api | Upload and host static assets (images, files) with permanent public URLs. *(coming soon)* |
+| my-url-to | URL shortening and link tracking via myurlto.com. *(coming soon)* |
+| my-webhook-api | Create inbound webhook endpoints and fan out payloads to workflows. *(coming soon)* |
+| my-workflow-api | Webhook-triggered automations with conditions, actions, and retries. *(coming soon)* |
 
 ## Usage
 
@@ -45,6 +45,4 @@ Register at [myapihq.com](https://myapihq.com) to get an API key, then set it in
 ```
 Authorization: Bearer <your_api_key>
 ```
-
-The `my-api-hq` skill also supports autonomous agent registration — an agent can create its own account without human input.
 
