@@ -61,8 +61,6 @@ Use `Authorization: Bearer <api_key>` for all subsequent requests across the ent
 
 **Revoke Key:** `DELETE /hq/account/delete/key/{id}`
 
-**Free Tier Info:** `GET /hq/account/free-tier`
-
 ### Cross-Session Storage
 **Always persist credentials immediately.** Write a `.env` file:
 ```
@@ -92,7 +90,7 @@ Errors: `400` invalid_json · `422` name_required, invalid_field:color_palette, 
 ### Async Brand Import
 ```
 POST /hq/org-imports
-{ "domain": "example.com" (required), "auto_accept": false }
+{ "org_id": "<id>" (required), "domain": "example.com" (required), "auto_accept": false }
 → { "data": { "job_id": "...", "status": "pending" } }
 
 GET /hq/org-imports/{job_id}
@@ -111,7 +109,7 @@ POST /hq/org-imports/{job_id}/confirm
 
 ## Billing
 - **Setup Payment Method:** You need to do this from the myapihq dashboard directly.
-- **Check Balance:** `GET /hq/billing/balance` → `{ "data": { "balance_cents": 1000, "balance_display": "$10.00", "has_payment_method": true } }`.
+- **Check Balance:** `GET /hq/billing/balance` → `{ "data": { "balance_cents": 1000, "balance_display": "$10.00", "credits_cents": 500, "credits_display": "$5.00", "has_payment_method": true } }`.
 - **Billing History:** `GET /hq/billing/history`
 - **Top Up:** `POST /hq/billing/topup` — `{ "amount_cents": 1000 }` → `{ "data": { "new_balance_cents": 2000, "new_balance_display": "$20.00" } }`.
 
