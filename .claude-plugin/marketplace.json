@@ -29,17 +29,6 @@
         "myapi",
         "my-domain-api"
       ]
-    },
-    {
-      "name": "my-email-api",
-      "source": "./my-email-api",
-      "description": "Email infrastructure: mailbox creation, sending, reading, verification, and AI-powered templates.",
-      "category": "productivity",
-      "tags": [
-        "api",
-        "myapi",
-        "my-email-api"
-      ]
     }
   ]
 }
