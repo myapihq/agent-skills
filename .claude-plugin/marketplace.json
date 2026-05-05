@@ -29,6 +29,17 @@
         "myapi",
         "my-domain-api"
       ]
+    },
+    {
+      "name": "my-funnel-api",
+      "source": "./my-funnel-api",
+      "description": "Build multi-page sites and funnels with headless HTML upload.",
+      "category": "productivity",
+      "tags": [
+        "api",
+        "myapi",
+        "my-funnel-api"
+      ]
     }
   ]
 }
