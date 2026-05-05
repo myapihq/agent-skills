@@ -18,6 +18,17 @@
         "myapi",
         "my-api-hq"
       ]
+    },
+    {
+      "name": "my-domain-api",
+      "source": "./my-domain-api",
+      "description": "Domain registration and check with automated DNS and email infrastructure.",
+      "category": "productivity",
+      "tags": [
+        "api",
+        "myapi",
+        "my-domain-api"
+      ]
     }
   ]
 }
