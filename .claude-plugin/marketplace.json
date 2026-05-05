@@ -40,6 +40,39 @@
         "myapi",
         "my-funnel-api"
       ]
+    },
+    {
+      "name": "my-url-to",
+      "source": "./my-url-to",
+      "description": "Stateless link routing and URL shortening for the MyAPI ecosystem.",
+      "category": "productivity",
+      "tags": [
+        "api",
+        "myapi",
+        "my-url-to"
+      ]
+    },
+    {
+      "name": "my-webhook-api",
+      "source": "./my-webhook-api",
+      "description": "Inbound webhook infrastructure: create endpoints, receive payloads, fan out to workflows.",
+      "category": "productivity",
+      "tags": [
+        "api",
+        "myapi",
+        "my-webhook-api"
+      ]
+    },
+    {
+      "name": "my-workflow-api",
+      "source": "./my-workflow-api",
+      "description": "Webhook-triggered workflow automation with trigger conditions, actions, and automatic retries.",
+      "category": "productivity",
+      "tags": [
+        "api",
+        "myapi",
+        "my-workflow-api"
+      ]
     }
   ]
 }
