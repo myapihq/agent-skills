@@ -55,19 +55,12 @@ GET /domain/orgs/{org_id}/{domain}/status
 ```
 Errors (status): `404` DOMAIN_NOT_FOUND.
 
-### Renew
-```
-POST /domain/orgs/{org_id}/{domain}/renew
-{ "years": 1 }
-```
-Errors: `400` invalid years · `404` DOMAIN_NOT_FOUND · `402` INSUFFICIENT_BALANCE.
-
-### Assign Domain to Org
+### Assign / Unassign Domain
 ```
 POST /domain/orgs/{org_id}/{domain}/assign
-{ "org_id": "<org_id>" }
+{ "org_id": "<target_org_id>" } // Pass null to unassign
 ```
-Associates a domain already in the account with a specific organization.
+Associates a domain already in the account with a specific organization, or removes it from its current organization if `org_id` is null.
 Errors: `404` DOMAIN_NOT_FOUND · `422` ORG_NOT_FOUND.
 
 ### Edge Settings
