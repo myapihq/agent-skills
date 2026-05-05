@@ -7,9 +7,10 @@ description: >
 # MyDomainAPI Skill
 
 ## Quick Start
-1. `GET /domain/orgs/{org_id}/check/available/{domain}` — confirm availability and price.
-2. `POST /domain/orgs/{org_id}/register` with `domain` and optional `years`.
-3. Proceed to `my-email-api` for mailboxes or `my-funnel-api` for a website.
+1. `GET /domain/orgs/{org_id}/list?filter=all` — lists domains owned by your account. `filter` can be `all`, `unassigned`, or `org` (default).
+2. `GET /domain/orgs/{org_id}/check/available/{domain}` — confirm availability and price.
+3. `POST /domain/orgs/{org_id}/register` with `domain` and optional `years`.
+4. Proceed to `my-email-api` for mailboxes or `my-funnel-api` for a website.
 
 DNS is fully managed by the platform — enabling seamless email deliverability, tracking pixel, and edge delivery integration. Manual DNS record management is not exposed.
 
