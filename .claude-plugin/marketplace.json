@@ -42,6 +42,39 @@
       ]
     },
     {
+      "name": "my-image-api",
+      "source": "./my-image-api",
+      "description": "AI image generation with automatic cloud storage. Pass a prompt, get a hosted public URL.",
+      "category": "productivity",
+      "tags": [
+        "api",
+        "myapi",
+        "my-image-api"
+      ]
+    },
+    {
+      "name": "my-pixel-api",
+      "source": "./my-pixel-api",
+      "description": "Pixel interaction data API: web visits, email events, and identity resolution.",
+      "category": "productivity",
+      "tags": [
+        "api",
+        "myapi",
+        "my-pixel-api"
+      ]
+    },
+    {
+      "name": "my-storage-api",
+      "source": "./my-storage-api",
+      "description": "Manage and ingest static assets like images, videos, and documents for your organization.",
+      "category": "productivity",
+      "tags": [
+        "api",
+        "myapi",
+        "my-storage-api"
+      ]
+    },
+    {
       "name": "my-url-to",
       "source": "./my-url-to",
       "description": "Stateless link routing and URL shortening for the MyAPI ecosystem.",
