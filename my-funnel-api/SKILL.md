@@ -11,7 +11,7 @@ These endpoints manage the database records and structural configuration of funn
 
 - `GET /funnel/orgs/{org_id}/funnels`
   Lists all funnels for the specified organization.
-- `POST /funnel/orgs/{org_id}/funnels/create-raw`
+- `POST /funnel/orgs/{org_id}/funnels`
   Creates a new funnel entry. Expects basic configuration metadata (name, domain, etc.). Body: `{ "domain": "example.com" }`
 - `GET /funnel/orgs/{org_id}/funnels/{id}`
   Retrieves the metadata and configuration details of a specific funnel.
