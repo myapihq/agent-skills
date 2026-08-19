@@ -1,48 +1,54 @@
 # MyAPI Agent Skills
 
-Agent skills for the [MyAPI](https://myapihq.com) ecosystem. Drop any skill into your agent and it gains instant access to real infrastructure — domains, email, storage, funnels, webhooks, and more.
+Agent skills for the [MyAPI](https://myapihq.com) ecosystem. Drop them into your
+agent and it gains instant access to real infrastructure — domains, email,
+containers, storage, funnels, payments, CRM, and more.
 
-## What is MyAPI?
+## Install
 
-MyAPI is a suite of API-first services designed for agents and developers. Every service shares the same authentication model, response envelope, and conventions, so once you learn one you know them all.
+```sh
+npm install -g @myapihq/cli
+myapi install-skills
+```
 
-Start with `my-api-hq` — it handles registration and gives your agent an API key. All other services require that key.
+That installs all 25 skills for Claude, Gemini and Cursor. Then:
 
-## Skills
+```sh
+myapi account setup     # create an account and mint an API key
+myapi status            # your account and every resource in the default org
+```
 
-| Skill | What it does |
-|---|---|
-| [my-api-hq](./my-api-hq/) | Auth, organizations, and billing. **Start here** — all other skills need an API key from this one. |
-| my-domain-api | Register domains, check availability, manage DNS and edge settings. *(coming soon)* |
-| my-email-api | Mailboxes, sending, reading, email verification, and AI-powered templates with open/click tracking. *(coming soon)* |
-| my-funnel-api | Host multi-page sites and funnels from raw HTML or AI-generated content. *(coming soon)* |
-| my-image-api | AI image generation with automatic cloud storage. Pass a prompt, get a hosted URL. *(coming soon)* |
-| my-pixel-api | Query web visits, email events, and identity resolution from the tracking pixel. *(coming soon)* |
-| my-storage-api | Upload and host static assets (images, files) with permanent public URLs. *(coming soon)* |
-| my-url-to | URL shortening and link tracking via myurlto.com. *(coming soon)* |
-| my-webhook-api | Create inbound webhook endpoints and fan out payloads to workflows. *(coming soon)* |
-| my-workflow-api | Webhook-triggered automations with conditions, actions, and retries. *(coming soon)* |
+## Where the skills live
 
-## Usage
+**In [myapihq/myapi](https://github.com/myapihq/myapi), under `skills/`** — not
+in this repo. They ship inside `@myapihq/cli`, which is what `install-skills`
+unpacks, so the skills you install always match the client you installed them
+with.
 
-Each skill is a folder containing a `SKILL.md`. Copy the folder into your agent's skills directory:
+This repo holds a snapshot of 10 skills from April 2026 and is no longer
+updated. `install.sh` is kept working — it now installs the CLI and delegates to
+it — because the `curl … | sh` one-liner is in circulation and should not break.
 
-| Agent | Skills directory |
-|---|---|
-| Claude | `~/.claude/skills/` |
-| Gemini | `~/.gemini/skills/` |
+The snapshot is left here rather than deleted so old links keep resolving, but
+**do not copy from it**: it predates 15 slots, and one of its skills is for a
+service that has since been renamed. Read the skills in the myapi repo instead.
 
-Then restart your agent and it will pick up the skill automatically.
+## Why the change
 
-### Claude plugin
+The skills used to be published here as a zip on Cloud Storage. When they moved
+to the myapi repo, the workflow that built that zip kept watching the old
+directory — so it never ran again and never failed either. It just quietly
+stopped mattering, and for four months this installer handed people 10 of 25
+skills without anyone noticing.
 
-Install directly from the Claude plugin registry — no manual setup needed.
+Shipping the skills inside the CLI removes the second copy. There is nothing
+left to forget to publish.
 
 ## Authentication
 
-Register at [myapihq.com](https://myapihq.com) to get an API key, then set it in your environment:
+`myapi account setup` handles this. For direct HTTP calls, register at
+[myapihq.com](https://myapihq.com) and send:
 
 ```
 Authorization: Bearer <your_api_key>
 ```
-

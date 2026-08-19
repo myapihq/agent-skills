@@ -1,46 +1,55 @@
 #!/bin/sh
 set -e
 
-ZIP_URL="https://storage.googleapis.com/myapi-skills/skills.zip"
-TMP="$(mktemp /tmp/myapi-skills-XXXXXX.zip)"
+# This script used to download a zip of skill files from Cloud Storage.
+#
+# That zip was last built on 2026-04-30 and contained 10 of the 25 skills. It
+# went stale the day the skills moved into the myapi repo: the workflow that
+# published it watches a directory in the old repo that nobody edits any more,
+# so it has not run since, and it never failed either — it simply stopped
+# mattering. Anyone running this script in the months afterwards installed a
+# subset four months old, including one skill for a slot that has since been
+# renamed.
+#
+# The CLI is now the source. `myapi install-skills` installs the skills out of
+# the package it shipped in, so the skills and the client cannot drift apart:
+# there is no second copy to forget to publish.
 
-INSTALL_CLAUDE=0
-INSTALL_GEMINI=0
+# The old flags. They no longer select anything — the CLI installs for Claude,
+# Gemini and Cursor in one pass — but accepting them means a command someone
+# saved a year ago still works instead of dying on "Unknown option".
+for arg in "$@"; do
+  case "$arg" in
+    --claude|--gemini|--all) ;;
+    *) echo "Unknown option: $arg"; echo "Usage: install.sh"; exit 1 ;;
+  esac
+done
 
-if [ $# -eq 0 ]; then
-  INSTALL_CLAUDE=1
-  INSTALL_GEMINI=1
-else
-  for arg in "$@"; do
-    case "$arg" in
-      --claude) INSTALL_CLAUDE=1 ;;
-      --gemini) INSTALL_GEMINI=1 ;;
-      --all)    INSTALL_CLAUDE=1; INSTALL_GEMINI=1 ;;
-      *) echo "Unknown option: $arg"; echo "Usage: install.sh [--claude] [--gemini] [--all]"; exit 1 ;;
-    esac
-  done
+if ! command -v npm >/dev/null 2>&1; then
+  cat <<'EOF'
+This installer needs npm, which is not on your PATH.
+
+Install Node.js 20 or newer (https://nodejs.org), then run:
+
+  npm install -g @myapihq/cli
+  myapi install-skills
+EOF
+  exit 1
 fi
 
-echo "Downloading myapi skills..."
-curl -sSLf "$ZIP_URL" -o "$TMP"
+echo "Installing the MyAPI CLI..."
+npm install -g @myapihq/cli
 
-if [ $INSTALL_CLAUDE -eq 1 ]; then
-  echo "Installing for Claude Code..."
-  mkdir -p "$HOME/.claude/skills"
-  unzip -qo "$TMP" -d "$HOME/.claude/skills"
-  echo "  -> $HOME/.claude/skills"
-fi
+echo "Installing skills..."
+myapi install-skills
 
-if [ $INSTALL_GEMINI -eq 1 ]; then
-  echo "Installing for Gemini..."
-  mkdir -p "$HOME/.gemini/skills"
-  unzip -qo "$TMP" -d "$HOME/.gemini/skills"
-  echo "  -> $HOME/.gemini/skills"
-fi
+cat <<'EOF'
 
-rm -f "$TMP"
-echo ""
-echo "────────────────────────────────────────"
-echo "Start your agent and ask:"
-echo "  What can I do with the myapi skills?"
-echo "────────────────────────────────────────"
+────────────────────────────────────────
+Start your agent and ask:
+  What can I do with the myapi skills?
+
+The CLI is installed too — `myapi status` shows your
+account and every resource in your default org.
+────────────────────────────────────────
+EOF
