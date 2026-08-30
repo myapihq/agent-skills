@@ -1,54 +1,70 @@
-# MyAPI Agent Skills
+# MyAPI for Claude Code
 
-Agent skills for the [MyAPI](https://myapihq.com) ecosystem. Drop them into your
-agent and it gains instant access to real infrastructure — domains, email,
-containers, storage, funnels, payments, CRM, and more.
+Give your agent the ability to put real things on the internet — a website on
+your own domain, business email, a customer list, payments, sign-in for your
+users, background jobs, and a git repo it can commit to and deploy.
+
+Not descriptions of those things. The actual things, live, at a URL you can
+open.
 
 ## Install
 
-```sh
-npm install -g @myapihq/cli
-myapi install-skills
+```
+/plugin marketplace add myapihq/agent-skills
+/plugin install myapi
 ```
 
-That installs all 25 skills for Claude, Gemini and Cursor. Then:
+Then restart Claude Code. You will be asked to sign in the first time your
+agent uses it.
 
-```sh
-myapi account setup     # create an account and mint an API key
-myapi status            # your account and every resource in the default org
+## Try it
+
+Ask for something that has to exist in the world:
+
+> Put a landing page for a bakery called Aurora live on the internet.
+
+> Register a domain for it, set up hello@ on that domain, and wire the
+> contact form to a customer list.
+
+> Deploy a small API that stores signups, and give me the URL.
+
+The agent picks the tools itself. You do not need to name them.
+
+## What it can do
+
+**Websites** — publish a page, put it on your own domain, custom subdomains
+**Domains** — check availability, register, DNS handled for you
+**Email** — mailboxes on your domain, send, inbox and outbox
+**Customers** — a CRM, contact forms wired to it, lead search
+**Payments** — take card payments (connect your own Stripe account)
+**Sign-in** — OIDC for *your* users, with Google or a password
+**Data** — a key-value store, file storage, images and logos
+**Code** — a git repo with commits, branches and tags; deploy functions and
+containers straight from it
+**Behind the scenes** — background jobs, scheduled work, webhooks, analytics
+
+Anything without a dedicated tool is still reachable: the server can search
+its own API and call any published route.
+
+## Where the instructions live
+
+They come from the server, not from this repo. Tool descriptions, worked
+examples and recipes arrive over the connection and are updated when the
+platform is — so they cannot go stale in a copy somebody forgot to publish.
+
+This repo used to ship a snapshot of those instructions. It went four months
+out of date without anyone noticing, which is why it no longer does.
+
+## Not using Claude Code?
+
+The server speaks the Model Context Protocol over HTTP:
+
+```
+https://api.myapihq.com/mcp
 ```
 
-## Where the skills live
+Any MCP client can connect to it.
 
-**In [myapihq/myapi](https://github.com/myapihq/myapi), under `skills/`** — not
-in this repo. They ship inside `@myapihq/cli`, which is what `install-skills`
-unpacks, so the skills you install always match the client you installed them
-with.
+---
 
-This repo holds a snapshot of 10 skills from April 2026 and is no longer
-updated. `install.sh` is kept working — it now installs the CLI and delegates to
-it — because the `curl … | sh` one-liner is in circulation and should not break.
-
-The snapshot is left here rather than deleted so old links keep resolving, but
-**do not copy from it**: it predates 15 slots, and one of its skills is for a
-service that has since been renamed. Read the skills in the myapi repo instead.
-
-## Why the change
-
-The skills used to be published here as a zip on Cloud Storage. When they moved
-to the myapi repo, the workflow that built that zip kept watching the old
-directory — so it never ran again and never failed either. It just quietly
-stopped mattering, and for four months this installer handed people 10 of 25
-skills without anyone noticing.
-
-Shipping the skills inside the CLI removes the second copy. There is nothing
-left to forget to publish.
-
-## Authentication
-
-`myapi account setup` handles this. For direct HTTP calls, register at
-[myapihq.com](https://myapihq.com) and send:
-
-```
-Authorization: Bearer <your_api_key>
-```
+[myapihq.com](https://myapihq.com/)

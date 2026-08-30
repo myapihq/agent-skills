@@ -1,6 +1,0 @@
-{
-  "name": "my-image-api",
-  "description": "AI image generation with automatic cloud storage. Pass a prompt, get a hosted public URL.",
-  "version": "1.0.0",
-  "published": true
-}

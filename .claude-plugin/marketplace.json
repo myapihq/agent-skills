@@ -1,45 +1,19 @@
 {
-  "name": "myapi-skills",
+  "name": "myapi",
   "owner": {
-    "name": "MyAPI HQ",
-    "email": "r.mattesini@x80security.com"
+    "name": "MyAPI HQ"
   },
   "metadata": {
-    "description": "Skills for the MyAPI ecosystem."
+    "description": "Connect your agent to MyAPI."
   },
   "plugins": [
     {
-      "name": "my-api-hq",
-      "source": "./my-api-hq",
-      "description": "Core identity and billing hub. Manage auth, organizations, and billing.",
-      "category": "productivity",
-      "tags": [
-        "api",
-        "myapi",
-        "my-api-hq"
-      ]
-    },
-    {
-      "name": "my-domain-api",
-      "source": "./my-domain-api",
-      "description": "Domain registration and check with automated DNS and email infrastructure.",
-      "category": "productivity",
-      "tags": [
-        "api",
-        "myapi",
-        "my-domain-api"
-      ]
-    },
-    {
-      "name": "my-funnel-api",
-      "source": "./my-funnel-api",
-      "description": "Build multi-page sites and funnels with headless HTML upload.",
-      "category": "productivity",
-      "tags": [
-        "api",
-        "myapi",
-        "my-funnel-api"
-      ]
+      "name": "myapi",
+      "source": "./myapi",
+      "description": "Build and run real businesses from your agent: websites on your own domain, business email, a customer list, payments, sign-in for your users, background jobs, and a git repo with deploys.",
+      "category": "development",
+      "homepage": "https://myapihq.com/",
+      "tags": ["myapi", "mcp", "websites", "domains", "email", "payments"]
     }
   ]
 }
