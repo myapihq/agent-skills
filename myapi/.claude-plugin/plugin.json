@@ -1,8 +1,0 @@
-{
-  "name": "myapi",
-  "description": "Build and run real businesses from your agent: websites on your own domain, business email, a customer list, payments, sign-in for your users, background jobs, and a git repo with deploys. Connects the MyAPI server so your agent can do the work, not just describe it.",
-  "author": {
-    "name": "MyAPI HQ"
-  },
-  "homepage": "https://myapihq.com/"
-}

@@ -1,70 +1,71 @@
-# MyAPI for Claude Code
+# Sabaki
 
-Give your agent the ability to put real things on the internet — a website on
-your own domain, business email, a customer list, payments, sign-in for your
-users, background jobs, and a git repo it can commit to and deploy.
+**One account to run your entire startup.**
 
-Not descriptions of those things. The actual things, live, at a URL you can
-open.
+24 building blocks — website, domain, business email, card payments, customer
+logins, a database, a CRM, file storage, background jobs and real deployed apps
+— in one account instead of a dozen subscriptions. They already work together,
+so the integrations that normally take a week are just done.
+
+[sabaki.app](https://sabaki.app/)
 
 ## Install
 
 ```
 /plugin marketplace add myapihq/agent-skills
-/plugin install myapi
+/plugin install sabaki
 ```
 
-Then restart Claude Code. You will be asked to sign in the first time your
-agent uses it.
+Restart Claude Code. You'll be asked to sign in the first time your agent uses
+it — no API key to create or paste.
 
-## Try it
+## Any other MCP client
 
-Ask for something that has to exist in the world:
-
-> Put a landing page for a bakery called Aurora live on the internet.
-
-> Register a domain for it, set up hello@ on that domain, and wire the
-> contact form to a customer list.
-
-> Deploy a small API that stores signups, and give me the URL.
-
-The agent picks the tools itself. You do not need to name them.
-
-## What it can do
-
-**Websites** — publish a page, put it on your own domain, custom subdomains
-**Domains** — check availability, register, DNS handled for you
-**Email** — mailboxes on your domain, send, inbox and outbox
-**Customers** — a CRM, contact forms wired to it, lead search
-**Payments** — take card payments (connect your own Stripe account)
-**Sign-in** — OIDC for *your* users, with Google or a password
-**Data** — a key-value store, file storage, images and logos
-**Code** — a git repo with commits, branches and tags; deploy functions and
-containers straight from it
-**Behind the scenes** — background jobs, scheduled work, webhooks, analytics
-
-Anything without a dedicated tool is still reachable: the server can search
-its own API and call any published route.
-
-## Where the instructions live
-
-They come from the server, not from this repo. Tool descriptions, worked
-examples and recipes arrive over the connection and are updated when the
-platform is — so they cannot go stale in a copy somebody forgot to publish.
-
-This repo used to ship a snapshot of those instructions. It went four months
-out of date without anyone noticing, which is why it no longer does.
-
-## Not using Claude Code?
-
-The server speaks the Model Context Protocol over HTTP:
+ChatGPT, Cursor, Windsurf, Zed, Cline, VS Code — point them at:
 
 ```
 https://api.myapihq.com/mcp
 ```
 
-Any MCP client can connect to it.
+## Try it
+
+Ask for something that has to exist in the world:
+
+> Put my product online, let people sign in, and take card payments.
+
+> Register a domain for it and set up hello@ on that domain.
+
+> Every morning, email me new customers and any failed payments.
+
+The agent picks the tools itself. You never name them.
+
+## Replaces
+
+| | |
+|---|---|
+| Website & hosting | Vercel · Netlify · Webflow |
+| Domains | GoDaddy · Namecheap |
+| Email | Postmark · SendGrid · Resend |
+| Customer logins | Auth0 · Clerk · Firebase Auth |
+| Database & storage | Supabase · Firebase · S3 |
+| CRM | HubSpot · Pipedrive · Attio |
+| Automation | Zapier · Make · n8n |
+| Background jobs | Inngest · Trigger.dev · cron |
+| Apps & deploys | Heroku · Railway · Render · Fly |
+| Analytics | Google Analytics · Plausible |
+
+**The one you keep: Stripe.** Payments really are Stripe — your account, your
+money. What disappears is the week of work around it.
+
+## Where the instructions live
+
+They come from the server, not from this repo. Tool descriptions, examples and
+recipes arrive over the connection and update when the platform does, so they
+cannot go stale in a copy somebody forgot to publish.
+
+This repo used to ship a snapshot of them. It went four months out of date
+without anyone noticing, which is why it no longer does.
 
 ---
 
-[myapihq.com](https://myapihq.com/)
+[sabaki.app](https://sabaki.app/) · [Dashboard](https://myapihq.com/)

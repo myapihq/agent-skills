@@ -1,19 +1,19 @@
 {
-  "name": "myapi",
+  "name": "sabaki",
   "owner": {
-    "name": "MyAPI HQ"
+    "name": "Sabaki"
   },
   "metadata": {
-    "description": "Connect your agent to MyAPI."
+    "description": "Connect your agent to Sabaki."
   },
   "plugins": [
     {
-      "name": "myapi",
-      "source": "./myapi",
-      "description": "Build and run real businesses from your agent: websites on your own domain, business email, a customer list, payments, sign-in for your users, background jobs, and a git repo with deploys.",
+      "name": "sabaki",
+      "source": "./sabaki",
+      "description": "One account to run your entire startup — website, domain, business email, payments, customer logins, database, CRM, storage, background jobs and real deployed apps. Already wired together, so your agent skips the integration work.",
       "category": "development",
-      "homepage": "https://myapihq.com/",
-      "tags": ["myapi", "mcp", "websites", "domains", "email", "payments"]
+      "homepage": "https://sabaki.app/",
+      "tags": ["sabaki", "mcp", "startup", "payments", "domains", "email", "crm", "deploy"]
     }
   ]
 }
