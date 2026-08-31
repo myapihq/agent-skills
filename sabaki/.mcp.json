@@ -1,0 +1,6 @@
+{
+  "sabaki": {
+    "type": "http",
+    "url": "https://api.myapihq.com/mcp"
+  }
+}

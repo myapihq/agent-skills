@@ -1,54 +1,71 @@
-# MyAPI Agent Skills
+# Sabaki
 
-Agent skills for the [MyAPI](https://myapihq.com) ecosystem. Drop them into your
-agent and it gains instant access to real infrastructure — domains, email,
-containers, storage, funnels, payments, CRM, and more.
+**One account to run your entire startup.**
+
+24 building blocks — website, domain, business email, card payments, customer
+logins, a database, a CRM, file storage, background jobs and real deployed apps
+— in one account instead of a dozen subscriptions. They already work together,
+so the integrations that normally take a week are just done.
+
+[sabaki.app](https://sabaki.app/)
 
 ## Install
 
-```sh
-npm install -g @myapihq/cli
-myapi install-skills
+```
+/plugin marketplace add myapihq/agent-skills
+/plugin install sabaki
 ```
 
-That installs all 25 skills for Claude, Gemini and Cursor. Then:
+Restart Claude Code. You'll be asked to sign in the first time your agent uses
+it — no API key to create or paste.
 
-```sh
-myapi account setup     # create an account and mint an API key
-myapi status            # your account and every resource in the default org
-```
+## Any other MCP client
 
-## Where the skills live
-
-**In [myapihq/myapi](https://github.com/myapihq/myapi), under `skills/`** — not
-in this repo. They ship inside `@myapihq/cli`, which is what `install-skills`
-unpacks, so the skills you install always match the client you installed them
-with.
-
-This repo holds a snapshot of 10 skills from April 2026 and is no longer
-updated. `install.sh` is kept working — it now installs the CLI and delegates to
-it — because the `curl … | sh` one-liner is in circulation and should not break.
-
-The snapshot is left here rather than deleted so old links keep resolving, but
-**do not copy from it**: it predates 15 slots, and one of its skills is for a
-service that has since been renamed. Read the skills in the myapi repo instead.
-
-## Why the change
-
-The skills used to be published here as a zip on Cloud Storage. When they moved
-to the myapi repo, the workflow that built that zip kept watching the old
-directory — so it never ran again and never failed either. It just quietly
-stopped mattering, and for four months this installer handed people 10 of 25
-skills without anyone noticing.
-
-Shipping the skills inside the CLI removes the second copy. There is nothing
-left to forget to publish.
-
-## Authentication
-
-`myapi account setup` handles this. For direct HTTP calls, register at
-[myapihq.com](https://myapihq.com) and send:
+ChatGPT, Cursor, Windsurf, Zed, Cline, VS Code — point them at:
 
 ```
-Authorization: Bearer <your_api_key>
+https://api.myapihq.com/mcp
 ```
+
+## Try it
+
+Ask for something that has to exist in the world:
+
+> Put my product online, let people sign in, and take card payments.
+
+> Register a domain for it and set up hello@ on that domain.
+
+> Every morning, email me new customers and any failed payments.
+
+The agent picks the tools itself. You never name them.
+
+## Replaces
+
+| | |
+|---|---|
+| Website & hosting | Vercel · Netlify · Webflow |
+| Domains | GoDaddy · Namecheap |
+| Email | Postmark · SendGrid · Resend |
+| Customer logins | Auth0 · Clerk · Firebase Auth |
+| Database & storage | Supabase · Firebase · S3 |
+| CRM | HubSpot · Pipedrive · Attio |
+| Automation | Zapier · Make · n8n |
+| Background jobs | Inngest · Trigger.dev · cron |
+| Apps & deploys | Heroku · Railway · Render · Fly |
+| Analytics | Google Analytics · Plausible |
+
+**The one you keep: Stripe.** Payments really are Stripe — your account, your
+money. What disappears is the week of work around it.
+
+## Where the instructions live
+
+They come from the server, not from this repo. Tool descriptions, examples and
+recipes arrive over the connection and update when the platform does, so they
+cannot go stale in a copy somebody forgot to publish.
+
+This repo used to ship a snapshot of them. It went four months out of date
+without anyone noticing, which is why it no longer does.
+
+---
+
+[sabaki.app](https://sabaki.app/) · [Dashboard](https://myapihq.com/)

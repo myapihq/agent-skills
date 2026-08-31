@@ -1,45 +1,19 @@
 {
-  "name": "myapi-skills",
+  "name": "sabaki",
   "owner": {
-    "name": "MyAPI HQ",
-    "email": "r.mattesini@x80security.com"
+    "name": "Sabaki"
   },
   "metadata": {
-    "description": "Skills for the MyAPI ecosystem."
+    "description": "Connect your agent to Sabaki."
   },
   "plugins": [
     {
-      "name": "my-api-hq",
-      "source": "./my-api-hq",
-      "description": "Core identity and billing hub. Manage auth, organizations, and billing.",
-      "category": "productivity",
-      "tags": [
-        "api",
-        "myapi",
-        "my-api-hq"
-      ]
-    },
-    {
-      "name": "my-domain-api",
-      "source": "./my-domain-api",
-      "description": "Domain registration and check with automated DNS and email infrastructure.",
-      "category": "productivity",
-      "tags": [
-        "api",
-        "myapi",
-        "my-domain-api"
-      ]
-    },
-    {
-      "name": "my-funnel-api",
-      "source": "./my-funnel-api",
-      "description": "Build multi-page sites and funnels with headless HTML upload.",
-      "category": "productivity",
-      "tags": [
-        "api",
-        "myapi",
-        "my-funnel-api"
-      ]
+      "name": "sabaki",
+      "source": "./sabaki",
+      "description": "One account to run your entire startup — website, domain, business email, payments, customer logins, database, CRM, storage, background jobs and real deployed apps. Already wired together, so your agent skips the integration work.",
+      "category": "development",
+      "homepage": "https://sabaki.app/",
+      "tags": ["sabaki", "mcp", "startup", "payments", "domains", "email", "crm", "deploy"]
     }
   ]
 }
